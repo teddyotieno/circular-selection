@@ -5,6 +5,9 @@
   "repository": "https://github.com/teddyotieno/circular-selection.git",
   "author": "Teddy Otieno <asolatotieno@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "server": "npx parcel index.html"
+  },
   "dependencies": {
     "parcel-bundler": "^1.11.0"
   }
