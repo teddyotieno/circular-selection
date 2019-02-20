@@ -8,11 +8,10 @@
   "scripts": {
     "dev": "parcel index.html"
   },
-  "dependencies": {
-    "autoprefixer": "^9.4.8",
-    "parcel-bundler": "^1.11.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "^9.4.8",
+    "parcel-bundler": "^1.11.0",
     "sass": "^1.17.0"
   }
 }
