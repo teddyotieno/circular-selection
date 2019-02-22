@@ -60,7 +60,7 @@ body {
   justify-content: center;
   .outter {
     ul {
-      @include on-circle($item-count: 8, $circle-size: 500px, $item-size: 1em);
+      @include on-circle($item-count: 5, $circle-size: 500px, $item-size: 1em);
     }
   }
   .inner {

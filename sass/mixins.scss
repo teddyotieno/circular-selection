@@ -25,14 +25,20 @@
     background: #fff;
     border-radius: 50%;
 
-    $angle: (180 / $item-count);
-    $rot: 180;
+    $angle: (90 / ($item-count - 2));
+
+    $rot: 225;
 
     @for $i from 1 through $item-count {
       &:nth-of-type(#{$i}) {
-        transform: rotate($rot * 1deg)
-          translate($circle-size)
-          rotate($rot * -(1deg));
+        @if $i == 1 {
+          transform: rotate(225deg) translate($circle-size);
+        } @else if $i == 5 {
+          transform: rotate(315deg) translate($circle-size);
+        } @else {
+          //   transform: rotate($rot * 1deg) translate($circle-size);
+          //   rotate($rot * -(1deg));
+        }
       }
       $rot: $rot + $angle;
     }
