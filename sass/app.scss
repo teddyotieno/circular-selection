@@ -74,31 +74,31 @@ body {
   padding: 0;
   list-style: none;
 
-  // > * {
-  //   display: block;
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   width: $item-size;
-  //   height: $item-size;
-  //   margin: -($item-size/2);
-  //   background: black;
-  //   border-radius: 50%;
+  > * {
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    width: $item-size;
+    height: $item-size;
+    margin: -($item-size/2);
+    background: black;
+    border-radius: 50%;
 
-  //   $angle: (360 / $item-count);
-  //   $rot: 0;
+    $angle: (180 / $item-count);
+    $rot: 180;
 
-  //   @for $i from 1 through $item-count {
-  //     &:nth-of-type(#{$i}) {
-  //       transform: rotate($rot * 1deg)
-  //         translate($circle-size / 2)
-  //         rotate($rot * -(1deg));
-  //     }
-  //     $rot: $rot + $angle;
-  //   }
-  // }
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg)
+          translate($circle-size)
+          rotate($rot * -(1deg));
+      }
+      $rot: $rot + $angle;
+    }
+  }
 }
 
 ul {
-  @include on-circle($item-count: 10, $circle-size: 400px, $item-size: 1em);
+  @include on-circle($item-count: 8, $circle-size: 400px, $item-size: 1em);
 }
