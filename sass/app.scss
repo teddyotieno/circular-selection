@@ -1,6 +1,7 @@
 @import "./base.scss";
 @import "./typography.scss";
 @import "./components.scss";
+@import "./mixins.scss";
 
 body {
   position: relative;
@@ -53,52 +54,18 @@ body {
   }
 }
 
-.half-circle-wrapper {
-  width: 100%;
+.half-circles-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
-}
-
-@mixin half-circle($circle-size) {
-  height: $circle-size;
-  width: $circle-size * 2;
-  border-top-left-radius: $circle-size * 2;
-  border-top-right-radius: $circle-size * 2;
-}
-
-@mixin on-circle($item-count, $circle-size, $item-size) {
-  @include half-circle($circle-size: $circle-size);
-
-  background: red;
-  position: relative;
-  padding: 0;
-  list-style: none;
-
-  > * {
-    display: block;
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    width: $item-size;
-    height: $item-size;
-    margin: -($item-size/2);
-    background: black;
-    border-radius: 50%;
-
-    $angle: (180 / $item-count);
-    $rot: 180;
-
-    @for $i from 1 through $item-count {
-      &:nth-of-type(#{$i}) {
-        transform: rotate($rot * 1deg)
-          translate($circle-size)
-          rotate($rot * -(1deg));
-      }
-      $rot: $rot + $angle;
+  .outter {
+    ul {
+      @include on-circle($item-count: 8, $circle-size: 500px, $item-size: 1em);
     }
   }
-}
-
-ul {
-  @include on-circle($item-count: 8, $circle-size: 400px, $item-size: 1em);
+  .inner {
+    @include half-circle(450px);
+    position: absolute;
+    bottom: 0;
+  }
 }

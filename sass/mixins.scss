@@ -1,0 +1,40 @@
+@mixin half-circle($circle-size) {
+  height: $circle-size;
+  width: $circle-size * 2;
+  border-top-left-radius: $circle-size * 2;
+  border-top-right-radius: $circle-size * 2;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+
+@mixin on-circle($item-count, $circle-size, $item-size) {
+  @include half-circle($circle-size: $circle-size);
+  position: relative;
+  padding: 0;
+  list-style: none;
+
+  > * {
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    width: $item-size;
+    height: $item-size;
+    margin: -($item-size/2);
+    background: #fff;
+    border-radius: 50%;
+
+    $angle: (180 / $item-count);
+    $rot: 180;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg)
+          translate($circle-size)
+          rotate($rot * -(1deg));
+      }
+      $rot: $rot + $angle;
+    }
+  }
+}
