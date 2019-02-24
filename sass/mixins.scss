@@ -36,11 +36,15 @@
         } @else if $i == 5 {
           transform: rotate(315deg) translate($circle-size);
         } @else {
-          //   transform: rotate($rot * 1deg) translate($circle-size);
-          //   rotate($rot * -(1deg));
+          transform: rotate($rot * 1deg)
+            translate($circle-size)
+            rotate($rot * -(1deg));
         }
       }
       $rot: $rot + $angle;
+    }
+    p {
+      transform: rotate(90deg);
     }
   }
 }
